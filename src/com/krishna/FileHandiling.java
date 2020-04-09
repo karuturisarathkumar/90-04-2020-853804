@@ -73,8 +73,6 @@ public class FileHandiling
 		 int age=date-date1;
 		 if(age<=agedd)
 		 {
-		/* Map m=new HashMap<Integer,String>();
-		 m.put(age,c.getCustname());*/
 		 System.out.println( c.getCustname() +" age is "+age);
 		 }
 		 }
@@ -96,7 +94,8 @@ public class FileHandiling
  {
 	while(true)
 	{
-		System.out.println("select \n 1.Display All Customers \n 2.Display By Age \n 3.Display By Country \n 4.Exit");
+		System.out.println("select \n 1.Display All Customers \n 2.Display By Age \n "
+				+ "3.Display By Country \n 4.change city \n 5.Replace \n 6.Exit");
 		Scanner in=new Scanner(System.in);
 		int i=in.nextInt();
 		
@@ -119,6 +118,40 @@ public class FileHandiling
 			displayByCountry(state);
 			break;
 		case 4:
+			System.out.println("enter the old and new city");
+			String newcity=in.next();
+			String oldcity=in.next();
+			List<Customer> list=cusAll();
+			for(Customer c:list)
+			{
+				if(c.getAddress().getCity().equals(oldcity))
+						{
+					c.getAddress().setCity(newcity);;
+						}
+			}
+			System.out.println(list);
+			break;
+		case 5:
+			System.out.println("enter the id");
+			int id=in.nextInt();
+			List<Customer> list1=cusAll();
+			int index=0;
+Customer c=new Customer();
+c.setCustid(181);
+c.setCustname("sai");
+c.setEmail("kkd@gmail.com");
+			for(Customer c1:list1)
+			{
+			if(c1.getCustid()==id)	
+			{
+				list1.set(index,c);
+				
+			}
+			index++;
+			}
+			
+			System.out.println(list1);
+		case 6:
 			System.out.println("Byee");
 			System.exit(0);
 		}
