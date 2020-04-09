@@ -71,20 +71,11 @@ public class FileHandiling
 		 int date=d.getYear()+1900;
 		 int date1=c.getDob().getYear()+1900;
 		 int age=date-date1;
-		 if(agedd==age)
+		 if(age<=agedd)
 		 {
-		 Map m=new HashMap<Integer,String>();
-		 m.put(age,c.getCustname());
-		 System.out.println( m.get(agedd));
-		 }
-		 else if(age<=agedd)
-		 {
-		 
-		 System.out.println( c.getCustname());
-		 }
-		 else
-		 {
-			 System.out.println("not matched");
+		/* Map m=new HashMap<Integer,String>();
+		 m.put(age,c.getCustname());*/
+		 System.out.println( c.getCustname() +" age is "+age);
 		 }
 		 }
 		
